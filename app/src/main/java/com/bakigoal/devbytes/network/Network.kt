@@ -1,5 +1,6 @@
 package com.bakigoal.devbytes.network
 
+import com.bakigoal.devbytes.network.service.DevbyteService
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

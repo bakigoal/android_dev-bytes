@@ -1,5 +1,6 @@
-package com.bakigoal.devbytes.network
+package com.bakigoal.devbytes.network.service
 
+import com.bakigoal.devbytes.network.dto.VideoPlaylistDto
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 
