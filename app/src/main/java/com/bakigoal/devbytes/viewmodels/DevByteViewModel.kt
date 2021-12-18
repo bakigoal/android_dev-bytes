@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.bakigoal.devbytes.domain.Video
 import com.bakigoal.devbytes.network.Network
-import com.bakigoal.devbytes.network.asDomainModel
+import com.bakigoal.devbytes.network.dto.asDomainModel
 import kotlinx.coroutines.launch
 import java.io.IOException
 
