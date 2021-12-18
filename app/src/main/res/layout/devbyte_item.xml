@@ -13,7 +13,7 @@
 
         <variable
             name="videoCallback"
-            type="com.bakigoal.devbytes.ui.VideoClick" />
+            type="com.bakigoal.devbytes.ui.fragment.VideoClick" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

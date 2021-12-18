@@ -1,4 +1,4 @@
-package com.bakigoal.devbytes.viewmodels
+package com.bakigoal.devbytes.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*

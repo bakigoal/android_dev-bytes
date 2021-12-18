@@ -3,13 +3,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.DevByteFragment">
+    tools:context=".ui.fragment.DevByteFragment">
 
     <data>
 
         <variable
             name="viewModel"
-            type="com.bakigoal.devbytes.viewmodels.DevByteViewModel" />
+            type="com.bakigoal.devbytes.ui.viewmodel.DevByteViewModel" />
     </data>
 
     <FrameLayout

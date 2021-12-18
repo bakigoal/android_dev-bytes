@@ -1,4 +1,4 @@
-package com.bakigoal.devbytes.ui
+package com.bakigoal.devbytes.ui.fragment
 
 import android.content.Intent
 import android.net.Uri
@@ -18,7 +18,7 @@ import com.bakigoal.devbytes.R
 import com.bakigoal.devbytes.databinding.DevbyteItemBinding
 import com.bakigoal.devbytes.databinding.FragmentDevByteBinding
 import com.bakigoal.devbytes.domain.Video
-import com.bakigoal.devbytes.viewmodels.DevByteViewModel
+import com.bakigoal.devbytes.ui.viewmodel.DevByteViewModel
 
 /**
  * Show a list of DevBytes on screen.
@@ -161,7 +161,7 @@ class DevByteAdapter(val callback: VideoClick) : RecyclerView.Adapter<DevByteVie
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DevByteViewHolder {
         val withDataBinding: DevbyteItemBinding = DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
-                DevByteViewHolder.LAYOUT,
+            DevByteViewHolder.LAYOUT,
                 parent,
                 false)
         return DevByteViewHolder(withDataBinding)
@@ -177,7 +177,7 @@ class DevByteAdapter(val callback: VideoClick) : RecyclerView.Adapter<DevByteVie
     override fun onBindViewHolder(holder: DevByteViewHolder, position: Int) {
         holder.viewDataBinding.also {
             it.video = videos[position]
-            it.videoCallback = callback
+            it.videoCallback =  callback
         }
     }
 

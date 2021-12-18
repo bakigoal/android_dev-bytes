@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/devByte"
-        android:name="com.bakigoal.devbytes.ui.DevByteFragment"
+        android:name="com.bakigoal.devbytes.ui.fragment.DevByteFragment"
         android:label="fragment_dev_byte"
         tools:layout="@layout/fragment_dev_byte" />
 </navigation>
