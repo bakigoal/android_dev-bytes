@@ -24,16 +24,12 @@ abstract class VideosDatabase : RoomDatabase() {
             return INSTANCE
         }
 
-        private fun initDb(context: Context) {
-            synchronized(this) {
-                if (!::INSTANCE.isInitialized) {
-                    INSTANCE = Room.databaseBuilder(
-                        context.applicationContext,
-                        VideosDatabase::class.java,
-                        "videos"
-                    )
-                        .build()
-                }
+        private fun initDb(context: Context) = synchronized(this) {
+            if (!::INSTANCE.isInitialized) {
+                INSTANCE = Room.databaseBuilder(
+                    context.applicationContext, VideosDatabase::class.java, "videos"
+                )
+                    .build()
             }
         }
     }
