@@ -1,4 +1,4 @@
-package com.bakigoal.devbytes.dto
+package com.bakigoal.devbytes.network.dto
 
 import com.bakigoal.devbytes.database.entity.VideoEntity
 import com.bakigoal.devbytes.domain.Video
