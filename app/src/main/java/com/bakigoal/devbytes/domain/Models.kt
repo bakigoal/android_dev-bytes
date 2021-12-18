@@ -13,11 +13,13 @@ import com.bakigoal.devbytes.util.smartTruncate
 /**
  * Videos represent a devbyte that can be played.
  */
-data class Video(val title: String,
-                 val description: String,
-                 val url: String,
-                 val updated: String,
-                 val thumbnail: String) {
+data class Video(
+    val title: String,
+    val description: String,
+    val url: String,
+    val updated: String,
+    val thumbnail: String
+) {
 
     /**
      * Short description is used for displaying truncated descriptions in the UI
