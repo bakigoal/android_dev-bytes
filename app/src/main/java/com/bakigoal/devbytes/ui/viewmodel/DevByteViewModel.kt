@@ -2,9 +2,11 @@ package com.bakigoal.devbytes.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bakigoal.devbytes.database.VideosDatabase.Companion.getDatabase
+import com.bakigoal.devbytes.domain.Video
 import com.bakigoal.devbytes.repository.VideosRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,7 +21,7 @@ class DevByteViewModel(application: Application) : AndroidViewModel(application)
     private val database = getDatabase(application)
     private val videosRepository = VideosRepository(database)
 
-    val playlist = videosRepository.videos
+    val playlist: LiveData<List<Video>> = videosRepository.videos
 
     init {
         viewModelScope.launch {
