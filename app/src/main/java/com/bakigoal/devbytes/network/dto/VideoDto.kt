@@ -1,7 +1,6 @@
 package com.bakigoal.devbytes.network.dto
 
 import com.bakigoal.devbytes.database.entity.VideoEntity
-import com.bakigoal.devbytes.domain.Video
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
@@ -17,15 +16,7 @@ data class VideoDto(
 /**
  * Convert Dto to database objects
  */
-fun VideoDto.asDomainModel(): Video = Video(
-    title = title,
-    description = description,
-    url = url,
-    updated = updated,
-    thumbnail = thumbnail
-)
-
-fun VideoDto.asDbModel(): VideoEntity = VideoEntity(
+fun VideoDto.toEntity(): VideoEntity = VideoEntity(
     title = title,
     description = description,
     url = url,

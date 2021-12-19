@@ -14,7 +14,7 @@ data class VideoEntity(
     val thumbnail: String
 )
 
-fun VideoEntity.asDomainModel(): Video = Video(
+fun VideoEntity.toDomainModel(): Video = Video(
     url = this.url,
     title = this.title,
     description = this.description,
@@ -22,4 +22,4 @@ fun VideoEntity.asDomainModel(): Video = Video(
     thumbnail = this.thumbnail
 )
 
-fun List<VideoEntity>.asDomainModel(): List<Video> = map(VideoEntity::asDomainModel)
+fun List<VideoEntity>.toDomainModel(): List<Video> = map(VideoEntity::toDomainModel)
