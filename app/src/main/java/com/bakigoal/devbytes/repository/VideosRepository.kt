@@ -1,6 +1,10 @@
 package com.bakigoal.devbytes.repository
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
 import com.bakigoal.devbytes.database.VideosDatabase
+import com.bakigoal.devbytes.database.entity.asDomainModel
+import com.bakigoal.devbytes.domain.Video
 import com.bakigoal.devbytes.network.Network
 import com.bakigoal.devbytes.network.dto.asDbModel
 import kotlinx.coroutines.Dispatchers
@@ -9,7 +13,11 @@ import kotlinx.coroutines.withContext
 /**
  * Repository for fetching devbytes from the network and storing them on disk
  */
-class VideosRepository (private val database: VideosDatabase){
+class VideosRepository(private val database: VideosDatabase) {
+
+    val videos: LiveData<List<Video>> = Transformations.map(database.videoDao.getVideos()) {
+        it.asDomainModel()
+    }
 
     suspend fun refreshVideos() {
         withContext(Dispatchers.IO) {
