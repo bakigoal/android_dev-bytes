@@ -1,9 +1,8 @@
 package com.bakigoal.devbytes
 
 import android.app.Application
-import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkManager
+import android.os.Build
+import androidx.work.*
 import com.bakigoal.devbytes.work.RefreshDataWork
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -37,15 +36,25 @@ class DevByteApplication : Application() {
     }
 
     private fun setupRefreshDataWorker() {
-        val repeatingRequest = PeriodicWorkRequestBuilder<RefreshDataWork>(
-            1,
-            TimeUnit.DAYS
-        ).build()
+        val workerConstraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.UNMETERED)
+            .setRequiresBatteryNotLow(true)
+            .setRequiresCharging(true)
+            .apply {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    setRequiresDeviceIdle(true)
+                }
+            }
+            .build()
+
+        val workRequest = PeriodicWorkRequestBuilder<RefreshDataWork>(1, TimeUnit.DAYS)
+            .setConstraints(workerConstraints)
+            .build()
 
         WorkManager.getInstance().enqueueUniquePeriodicWork(
             RefreshDataWork.WORK_NAME,
             ExistingPeriodicWorkPolicy.KEEP,
-            repeatingRequest
+            workRequest
         )
     }
 }
